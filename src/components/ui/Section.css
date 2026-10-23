@@ -1,0 +1,11 @@
+.section { padding: 72px clamp(16px, 4vw, 40px) 0; max-width: 1200px; margin: 0 auto; }
+.section:last-of-type { padding-bottom: 88px; }
+.section-head { margin-bottom: 28px; max-width: 680px; }
+.section-head p { margin: 10px 0 0; }
+.subhead { margin: 40px 0 18px; }
+.subhead h3 { color: var(--text); }
+.grid { display: grid; gap: var(--gap); }
+
+@media (max-width: 640px) {
+    .section { padding-top: 56px; }
+}

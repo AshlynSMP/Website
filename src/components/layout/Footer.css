@@ -1,0 +1,6 @@
+.footer { text-align: center; padding: 56px 16px 40px; border-top: 2px solid var(--edge); background: #0b0510; }
+.footer-logo { width: min(280px, 70vw); margin: 0 auto 18px; image-rendering: pixelated; }
+.footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px 20px; margin-bottom: 14px; }
+.footer-links a { color: var(--muted); font-size: .9rem; }
+.footer-links a:hover { color: var(--text); }
+.footer p { margin: 0; color: var(--faint); }

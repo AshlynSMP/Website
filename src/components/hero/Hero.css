@@ -1,0 +1,69 @@
+.hero {
+    position: relative; overflow: hidden;
+    min-height: calc(100svh - 56px); max-height: 940px;
+    display: grid; place-items: center;
+    padding: 48px 16px 72px;
+    background:
+        radial-gradient(ellipse 70% 55% at 50% 30%, #4a1468 0%, transparent 70%),
+        linear-gradient(180deg, var(--bg-2), var(--bg) 85%);
+}
+.hero::after {
+    content: ''; position: absolute; inset: auto 0 0; height: 160px; pointer-events: none;
+    background: linear-gradient(transparent, var(--bg));
+}
+.hero.is-preseason { min-height: 100svh; max-height: none; padding-block: 48px; }
+.mist { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.hero-inner { position: relative; z-index: 1; text-align: center; max-width: 780px; display: flex; flex-direction: column; align-items: center; }
+.hero-title { margin: 8px 0 32px; }
+.hero-title img { width: min(600px, 88vw); height: auto; filter: drop-shadow(0 6px 0 #000000a0); }
+.hero-lead { font-size: clamp(1rem, 2.2vw, 1.15rem); color: #dccbea; margin: 0 auto 36px; max-width: 540px; text-shadow: 2px 2px 0 #000; }
+
+.hero-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; width: min(560px, 100%); }
+.hero-stat,
+.preseason,
+.hero-offline {
+    border-radius: var(--radius);
+    background: var(--card); border: 2px solid var(--edge); box-shadow: var(--bevel);
+}
+.hero-stat { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 14px 10px; }
+.hero-stat .num { font-family: var(--pixel); font-size: clamp(1.2rem, 3.4vw, 1.75rem); line-height: 1.2; text-shadow: 2px 2px 0 #000; }
+.hero-stat .cap { color: var(--muted); font-size: .78rem; }
+
+.preseason { display: flex; flex-direction: column; align-items: center; gap: 10px; width: min(560px, 100%); padding: 18px 20px 16px; }
+.preseason-label { font-family: var(--pixel); font-size: .85rem; color: var(--gold); }
+.preseason .countdown { width: 100%; }
+.preseason-date { color: var(--muted); font-size: .85rem; }
+
+.hero-offline { display: flex; align-items: center; justify-content: center; gap: 12px; width: min(560px, 100%); padding: 20px; font-family: var(--pixel); font-size: 1.3rem; text-shadow: 2px 2px 0 #000; }
+.offline-dot { width: 12px; height: 12px; background: var(--red); flex: none; animation: pulse 2s infinite; }
+
+@keyframes logo-jitter {
+    0%, 39%, 44%, 89%, 94%, 100% { transform: none; }
+    40% { transform: translateX(3px); }
+    41.5% { transform: translateX(-2px); }
+    90% { transform: translateX(-3px); }
+    92% { transform: translateX(4px) skewX(-3deg); }
+}
+@keyframes logo-tear {
+    0%, 39%, 43%, 89%, 95%, 100% { opacity: 0; }
+    40% { opacity: 1; clip-path: inset(55% 0 28% 0); transform: translateX(16px); }
+    41.5% { opacity: 1; clip-path: inset(10% 0 74% 0); transform: translateX(-12px); }
+    90% { opacity: 1; clip-path: inset(18% 0 62% 0); transform: translateX(-22px); }
+    91.5% { opacity: 1; clip-path: inset(48% 0 34% 0); transform: translateX(18px); }
+    93% { opacity: 1; clip-path: inset(70% 0 12% 0); transform: translateX(-12px); }
+}
+.is-glitch .hero-title { position: relative; }
+.is-glitch .hero-title img { animation: logo-jitter 9s steps(1) infinite; }
+.is-glitch .hero-title::before,
+.is-glitch .hero-title::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+    background: var(--title) center / contain no-repeat;
+    animation: logo-tear 9s steps(1) infinite;
+}
+.is-glitch .hero-title::after { filter: hue-rotate(160deg); animation-delay: -.12s; }
+
+@media (max-width: 640px) {
+    .hero { padding-bottom: 56px; }
+    .hero-stat { padding: 10px 6px; }
+    .hero-stat .cap { font-size: .7rem; line-height: 1.3; }
+}

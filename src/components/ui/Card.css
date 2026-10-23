@@ -1,0 +1,12 @@
+.card {
+    background: var(--card);
+    border: 2px solid var(--edge); border-radius: var(--radius);
+    padding: 22px; position: relative; min-width: 0;
+    box-shadow: var(--bevel);
+}
+.card > header { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; min-height: 28px; }
+.card > header h3 { white-space: nowrap; }
+
+@media (max-width: 640px) {
+    .card { padding: 18px; }
+}

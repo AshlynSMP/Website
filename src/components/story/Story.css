@@ -1,0 +1,33 @@
+.acts { list-style: none; margin: 0 0 var(--gap); padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--gap); }
+.story-act {
+    position: relative; padding: 18px 20px; border-radius: var(--radius); border: 2px solid var(--edge);
+    background: var(--card); box-shadow: var(--bevel); min-height: 108px;
+    display: flex; flex-direction: column; justify-content: flex-start; gap: 10px;
+}
+.story-act-num { font-family: var(--pixel); font-size: .8rem; color: var(--faint); }
+.story-act-name { font-family: var(--pixel); font-size: 1.15rem; line-height: 1.25; }
+.story-act-info { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.5; }
+.story-act.current { border-color: var(--gold); }
+.story-act.current .story-act-num { color: var(--gold); }
+.story-act.current::after { content: 'Nu'; position: absolute; top: 16px; right: 16px; font-size: .7rem; font-weight: 700; color: #1a0b24; background: var(--gold); padding: 1px 9px; border-radius: 3px; }
+.story-act.done { opacity: .7; }
+.story-act.locked { border: 2px dashed var(--line-hi); background: transparent; box-shadow: none; }
+.story-act.locked .story-act-name { color: var(--faint); letter-spacing: .3em; }
+
+.timeline { list-style: none; margin: 0; padding: 0 0 0 28px; position: relative; display: flex; flex-direction: column; gap: 14px; max-width: 820px; }
+.timeline::before { content: ''; position: absolute; left: 6px; top: 10px; bottom: 10px; width: 4px; background: var(--line); }
+.tl-item { position: relative; }
+.tl-item::before {
+    content: ''; position: absolute; left: -28px; top: 22px; width: 16px; height: 16px; border-radius: 4px;
+    background: var(--purple); box-shadow: 0 0 0 4px var(--bg);
+}
+.tl-item.planned::before { background: var(--bg); border: 2px dashed var(--line-hi); }
+.tl-card { padding: 16px 20px; }
+.tl-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.tl-date { font-family: var(--pixel); font-size: .8rem; color: var(--faint); }
+.tl-name { font-weight: 700; font-size: 1.08rem; margin: 4px 0 0; }
+.tl-recap { margin: 8px 0 0; color: var(--muted); font-size: .94rem; white-space: pre-line; }
+.tl-item.planned .tl-card { background: transparent; border: 2px dashed var(--line-hi); box-shadow: none; }
+.tl-item.planned .tl-name { color: var(--muted); }
+.tl-badge { font-size: .7rem; font-weight: 600; padding: 2px 10px; border-radius: 3px; background: #0005; color: var(--muted); }
+.tl-item.live .tl-badge { color: #fff; background: #ff3df033; }

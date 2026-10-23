@@ -1,0 +1,10 @@
+.dialog { border: 2px solid var(--edge); border-radius: var(--radius); background: var(--card); color: var(--text); padding: 30px; width: min(560px, calc(100vw - 32px)); max-height: calc(100vh - 48px); overflow-y: auto; box-shadow: var(--bevel), 0 20px 60px #000c; }
+.dialog[open] { animation: pop .2s ease-out; }
+@keyframes pop { from { opacity: 0; transform: scale(.96); } }
+.dialog::backdrop { background: #07020bcc; }
+.dialog-close { position: absolute; top: 12px; right: 12px; width: 34px; height: 34px; border-radius: 3px; background: var(--inset); border: 0; color: var(--muted); font-size: 1.3rem; line-height: 1; cursor: pointer; }
+.dialog-close:hover { background: var(--inset-hover); color: var(--text); }
+
+@media (max-width: 640px) {
+    .dialog { padding: 24px 20px; }
+}

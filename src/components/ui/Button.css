@@ -1,0 +1,8 @@
+.btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 20px; border-radius: 3px; border: 2px solid var(--edge); cursor: pointer;
+    background: var(--purple); color: #fff; font: 700 .92rem var(--sans);
+    box-shadow: inset 2px 2px 0 #ffffff33, inset -2px -3px 0 #00000059; transition: filter .15s;
+}
+.btn:hover { color: #fff; filter: brightness(1.12); }
+.btn.ghost { background: #2a1a3a; color: var(--text); box-shadow: var(--bevel); }

@@ -1,0 +1,12 @@
+.profile-body { display: flex; gap: 28px; align-items: center; }
+.profile-skin { width: 120px; image-rendering: pixelated; filter: drop-shadow(0 6px 0 #00000080); flex: none; }
+.profile-info { flex: 1; min-width: 0; }
+.profile-info h3 { font-size: 1.35rem; color: var(--text); margin-bottom: 6px; }
+.profile-seen { margin: 8px 0 0; }
+.profile-info .facts { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+
+@media (max-width: 640px) {
+    .profile-body { flex-direction: column; text-align: center; gap: 16px; }
+    .profile-info .tags { justify-content: center; }
+    .profile-info .facts { text-align: left; }
+}

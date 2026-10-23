@@ -1,0 +1,27 @@
+.join-card { display: flex; gap: 36px; align-items: center; padding: 32px 36px; overflow: hidden; }
+.join-icon { position: relative; width: 150px; height: auto; image-rendering: pixelated; flex: none; filter: drop-shadow(0 6px 0 #00000080); }
+.join-body { position: relative; flex: 1; min-width: 0; }
+.join-body h3 { color: var(--text); font-size: 1.2rem; }
+.join-body > p { margin: 8px 0 22px; }
+.join-facts { margin: 18px 0 22px; display: flex; flex-wrap: wrap; gap: 12px 36px; }
+.join-body > p + .join-facts { margin-top: -4px; }
+.join-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.guide { width: min(600px, calc(100vw - 32px)); }
+.guide h3 { font-size: 1.2rem; color: var(--text); margin: 0 40px 20px 0; }
+.guide-steps { list-style: none; margin: 0; padding: 0; counter-reset: step; display: flex; flex-direction: column; gap: 14px; }
+.guide-steps li { counter-increment: step; position: relative; padding-left: 46px; display: flex; flex-direction: column; gap: 2px; }
+.guide-steps li::before {
+    content: counter(step); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 3px;
+    display: grid; place-items: center; font-family: var(--pixel); font-size: .85rem;
+    background: #0006; border: 2px solid var(--edge); color: var(--violet);
+}
+.guide-steps strong { font-weight: 600; }
+.guide-steps span { color: var(--muted); font-size: .92rem; }
+.guide-note { margin: 20px 0 0; padding-top: 16px; border-top: 1px solid var(--line); }
+
+@media (max-width: 640px) {
+    .join-card { flex-direction: column; align-items: flex-start; padding: 22px; gap: 20px; }
+    .join-icon { width: 110px; }
+    .join-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+}
