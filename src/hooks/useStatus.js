@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { config } from '../config.js';
 
 async function fetchStatus() {
-    const res = await fetch(config.statusUrl, { cache: 'no-store' });
+    const res = await fetch(`${config.apiUrl}/status`, { cache: 'no-store' });
     if (!res.ok) throw new Error(res.status);
     return res.json();
 }

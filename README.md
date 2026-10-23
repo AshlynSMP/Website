@@ -18,12 +18,14 @@ The website for the Ashlyn SMP. Built with [Vite](https://vite.dev) and React.
 
 ## Pre-season
 
-Until `seasonStart` (`dd-mm-yyyy hh:mm`, in `timezone`) in [`src/config.js`](src/config.js), the site only shows the logo and a countdown to the start of Season II, nothing else. Leave it `null` while there's no date yet; the countdown then shows scrambled question marks instead of numbers. It doesn't contact the server then, so the server doesn't need to be running. At the start time it switches to the live site by itself.
+Until `seasonStart` (`dd-mm-yyyy hh:mm`, in `timezone`) in [`src/config.js`](src/config.js), the site only shows the logo and a countdown to the start of Season II. Leave it `null` while there's no date yet; the countdown then shows scrambled question marks instead of numbers. At the start time it switches to the live site by itself.
+
+Under the countdown there's a whitelist form. It only shows up when the Core API can be reached and takes requests; leaders handle them in-game with `/aanvragen`. Without the API the site still works, just without the form.
 
 ## Setup
 
 1. Turn on the web API in Core's `config.yml` (`web.enabled: true`) and restart the server.
-2. Point `statusUrl` in [`src/config.js`](src/config.js) at it, e.g. `https://api.example.nl/api/status`.
+2. Point `apiUrl` in [`src/config.js`](src/config.js) at it, e.g. `https://api.example.nl/api`.
 3. Set `web.allowed-origin` in Core's config to the website's URL.
 
 > If the site is served over HTTPS (GitHub Pages is), the API must be HTTPS too or browsers will block it. Put it behind a reverse proxy or a Cloudflare Tunnel.

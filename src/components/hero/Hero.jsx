@@ -4,6 +4,7 @@ import { HeroStats } from './HeroStats.jsx';
 import { MistCanvas } from './MistCanvas.jsx';
 import { OfflineNotice } from './OfflineNotice.jsx';
 import { Preseason } from './Preseason.jsx';
+import { WhitelistForm } from './WhitelistForm.jsx';
 import './Hero.css';
 
 export function Hero({ preseason, seasonStart, connection, status }) {
@@ -15,6 +16,7 @@ export function Hero({ preseason, seasonStart, connection, status }) {
                     <img src={titleImg} alt="Ashlyn SMP Seizoen II: Mistwalkers" width="4053" height="1104" />
                 </div>
                 {preseason && <Preseason start={seasonStart} />}
+                {preseason && <WhitelistForm />}
                 {!preseason && connection === 'offline' && <OfflineNotice />}
                 {!preseason && connection !== 'offline' && (
                     <>
