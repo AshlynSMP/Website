@@ -7,6 +7,7 @@ import { PlayersSection } from './components/players/PlayersSection.jsx';
 import { ProfileProvider } from './components/players/ProfileContext.jsx';
 import { StorySection } from './components/story/StorySection.jsx';
 import { config } from './config.js';
+import { useGlitchStorm } from './hooks/useGlitchStorm.js';
 import { useIsBefore } from './hooks/useIsBefore.js';
 import { useStatus } from './hooks/useStatus.js';
 import { parseDate } from './lib/format.js';
@@ -18,6 +19,7 @@ export default function App() {
     const preseason = SEASON_START === null || beforeSeason;
     const { status, connection } = useStatus({ paused: preseason });
     const online = connection === 'online';
+    useGlitchStorm();
 
     return (
         <ProfileProvider status={status}>

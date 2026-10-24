@@ -1,0 +1,31 @@
+@keyframes storm-shake {
+    0% { transform: translate(0, 0); filter: none; }
+    20% { transform: translate(-6px, 2px); filter: hue-rotate(90deg); }
+    40% { transform: translate(5px, -3px) skewX(4deg); filter: invert(.1) saturate(3); }
+    60% { transform: translate(-3px, 0); filter: hue-rotate(-120deg) contrast(1.6); }
+    80% { transform: translate(7px, 3px); filter: none; }
+    100% { transform: translate(0, 0); filter: hue-rotate(200deg); }
+}
+@keyframes storm-slices {
+    0% { clip-path: inset(10% 0 80% 0); transform: translateX(-30px); }
+    25% { clip-path: inset(40% 0 45% 0); transform: translateX(40px); }
+    50% { clip-path: inset(70% 0 10% 0); transform: translateX(-20px); }
+    75% { clip-path: inset(25% 0 60% 0); transform: translateX(25px); }
+    100% { clip-path: inset(85% 0 3% 0); transform: translateX(-35px); }
+}
+body.glitch-storm main,
+body.glitch-storm .nav,
+body.glitch-storm .footer { animation: storm-shake .18s steps(1) infinite; }
+body.glitch-storm .hero-title { position: relative; }
+body.glitch-storm .hero-title::before,
+body.glitch-storm .hero-title::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 1;
+    background: var(--title) center / contain no-repeat;
+    animation: storm-slices .3s steps(1) infinite;
+}
+body.glitch-storm .hero-title::after { filter: hue-rotate(160deg); animation-delay: -.12s; }
+body.glitch-storm::after {
+    content: ''; position: fixed; inset: 0; z-index: 90; pointer-events: none;
+    background: repeating-linear-gradient(0deg, #00000059 0 2px, transparent 2px 4px);
+    mix-blend-mode: multiply;
+}

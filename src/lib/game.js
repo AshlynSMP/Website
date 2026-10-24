@@ -1,6 +1,6 @@
 import { formatNumber, formatPlaytime } from './format.js';
 
-export const DIMENSIONS = { overworld: 'Overworld', nether: 'Nether', end: 'The End' };
+const DIMENSIONS = { overworld: 'Overworld', nether: 'Nether', end: 'The End' };
 
 export const STATS = {
     playtimeMinutes: { label: 'Speeltijd', format: formatPlaytime },
