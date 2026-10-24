@@ -12,6 +12,7 @@ import { useIsBefore } from './hooks/useIsBefore.js';
 import { useStatus } from './hooks/useStatus.js';
 import { parseDate } from './lib/format.js';
 
+const MODPACK_CUE = { target: 'modpack', label: 'Bekijk de modpack' };
 const SEASON_START = config.seasonStart ? parseDate(config.seasonStart, config.timezone) : null;
 
 export default function App() {
@@ -25,19 +26,21 @@ export default function App() {
         <ProfileProvider status={status}>
             {online && <Nav />}
             <main id="top">
-                <Hero preseason={preseason} seasonStart={SEASON_START} connection={connection} status={status} />
-                {!preseason && (
+                <Hero
+                    preseason={preseason}
+                    seasonStart={SEASON_START}
+                    connection={connection}
+                    status={status}
+                    cue={preseason && config.showModpackBeforeSeason ? MODPACK_CUE : null}
+                />
+                {!preseason && online && (
                     <>
-                        {online && (
-                            <>
-                                <StorySection story={status.story} timeline={status.timeline ?? []} liveMs={status.event?.liveMs} />
-                                <LiveSection status={status} />
-                                <PlayersSection roster={status.roster ?? []} />
-                            </>
-                        )}
-                        <ModpackSection />
+                        <StorySection story={status.story} timeline={status.timeline ?? []} liveMs={status.event?.liveMs} />
+                        <LiveSection status={status} />
+                        <PlayersSection roster={status.roster ?? []} />
                     </>
                 )}
+                {(!preseason || config.showModpackBeforeSeason) && <ModpackSection />}
             </main>
             {!preseason && <Footer online={online} />}
         </ProfileProvider>

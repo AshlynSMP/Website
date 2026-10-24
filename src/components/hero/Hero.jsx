@@ -4,10 +4,11 @@ import { HeroStats } from './HeroStats.jsx';
 import { MistCanvas } from './MistCanvas.jsx';
 import { OfflineNotice } from './OfflineNotice.jsx';
 import { Preseason } from './Preseason.jsx';
+import { ScrollCue } from './ScrollCue.jsx';
 import { WhitelistForm } from './WhitelistForm.jsx';
 import './Hero.css';
 
-export function Hero({ preseason, seasonStart, connection, status }) {
+export function Hero({ preseason, seasonStart, connection, status, cue }) {
     return (
         <section className={cx('hero', preseason && 'is-preseason', (preseason || connection === 'offline') && 'is-glitch')}>
             <MistCanvas />
@@ -28,6 +29,7 @@ export function Hero({ preseason, seasonStart, connection, status }) {
                     </>
                 )}
             </div>
+            {cue && <ScrollCue target={cue.target}>{cue.label}</ScrollCue>}
         </section>
     );
 }

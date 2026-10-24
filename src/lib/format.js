@@ -1,4 +1,7 @@
+import { config } from '../config.js';
+
 const LOCALE = 'nl-NL';
+const TIME_ZONE = config.timezone;
 const ROMAN = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
 export const roman = (n) => ROMAN[n] ?? String(n);
@@ -7,7 +10,7 @@ export const pad = (n) => String(n).padStart(2, '0');
 
 export const formatNumber = (n) => n.toLocaleString(LOCALE);
 
-export const formatDate = (time, options) => new Date(time).toLocaleString(LOCALE, options);
+export const formatDate = (time, options) => new Date(time).toLocaleString(LOCALE, { timeZone: TIME_ZONE, ...options });
 
 export function parseDate(text, timeZone) {
     const match = text?.match(/^(\d{2})-(\d{2})-(\d{4})(?: (\d{2}):(\d{2}))?$/);
@@ -26,7 +29,7 @@ function zoneOffset(time, timeZone) {
 }
 
 export const formatTime = (time) =>
-    new Date(time).toLocaleTimeString(LOCALE, { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    new Date(time).toLocaleTimeString(LOCALE, { timeZone: TIME_ZONE, hour: '2-digit', minute: '2-digit', second: '2-digit' });
 
 export function formatPlaytime(minutes) {
     const h = Math.floor(minutes / 60);

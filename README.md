@@ -18,9 +18,9 @@ The website for the Ashlyn SMP. Built with [Vite](https://vite.dev) and React.
 
 ## Pre-season
 
-Until `seasonStart` (`dd-mm-yyyy hh:mm`, in `timezone`) in [`src/config.js`](src/config.js), the site only shows the logo and a countdown to the start of Season II. Leave it `null` while there's no date yet; the countdown then shows scrambled question marks instead of numbers. At the start time it switches to the live site by itself.
+Until `seasonStart` (`dd-mm-yyyy hh:mm`, in `timezone`, `Europe/Amsterdam` by default; every date and time on the site is shown in that timezone too, whatever the visitor's own timezone is) in [`src/config.js`](src/config.js), the site only shows the logo and a countdown to the start of Season II. Leave it `null` while there's no date yet; the countdown then shows scrambled question marks instead of numbers. At the start time it switches to the live site by itself.
 
-Under the countdown there's a whitelist form. It only shows up when the Core API can be reached and takes requests; leaders handle them in-game with `/aanvragen`. Without the API the site still works, just without the form.
+Set `showModpackBeforeSeason: true` to also show the modpack block below the countdown. Under the countdown there's a whitelist form. It only shows up when the Core API can be reached and takes requests; leaders handle them in-game with `/aanvragen`. Without the API the site still works, just without the form.
 
 ## Setup
 
