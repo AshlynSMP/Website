@@ -19,7 +19,7 @@ export default function App() {
     const preseason = SEASON_START === null || beforeSeason;
     const { status, connection } = useStatus({ paused: preseason });
     const online = connection === 'online';
-    useGlitchStorm();
+    useGlitchStorm({ enabled: preseason || connection === 'offline' });
 
     return (
         <ProfileProvider status={status}>

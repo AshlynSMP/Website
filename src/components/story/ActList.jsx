@@ -13,12 +13,13 @@ function Act({ number, title, info, state }) {
 
 export function ActList({ story }) {
     const { act, acts, total = 3 } = story;
+    const upcoming = Array.from({ length: Math.max(0, total - act) }, (_, i) => act + 1 + i);
     return (
         <ol className="acts">
             {acts.map((a) => (
                 <Act key={a.number} {...a} state={a.number === act ? 'current' : 'done'} />
             ))}
-            {act < total && <Act number={act + 1} state="locked" />}
+            {upcoming.map((number) => <Act key={number} number={number} state="locked" />)}
         </ol>
     );
 }
