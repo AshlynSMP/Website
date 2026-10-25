@@ -1,6 +1,5 @@
 .tags { display: inline-flex; gap: 4px; flex-wrap: wrap; }
 .tag { font-size: .62rem; font-family: var(--pixel); padding: 1px 6px; border-radius: 4px; line-height: 1.5; }
-.tag.leader { background: #ffaa0026; color: var(--orange); }
 .tag.op { background: #ff3df026; color: var(--pink); }
 .name { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .head { image-rendering: pixelated; border-radius: 3px; background: #0005; flex: none; }

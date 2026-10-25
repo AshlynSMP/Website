@@ -22,7 +22,7 @@ function OnlinePlayer({ player, isNew }) {
             <div className="op-info">
                 <div className="op-top">
                     <span className="name">{name}</span>
-                    <PlayerTags leader={player.leader} op={player.op} />
+                    <PlayerTags op={player.op} />
                 </div>
                 <Meter className="health" value={health} max={20} title={`${health / 2} hartjes`} />
                 <div className="op-chips">

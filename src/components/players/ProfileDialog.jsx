@@ -31,7 +31,7 @@ export function ProfileDialog({ status, name, onClose }) {
                     <img className="profile-skin" src={bodyUrl(player.name, 240)} alt="" />
                     <div className="profile-info">
                         <h3>{player.name}</h3>
-                        <PlayerTags leader={player.leader} op={player.live?.op} />
+                        <PlayerTags op={player.live?.op} />
                         <p className="muted small profile-seen">{seenText(player)}</p>
                         <Facts items={statRows(player)} />
                     </div>
