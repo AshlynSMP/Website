@@ -1,6 +1,7 @@
 import titleImg from '../../assets/img/title.png';
 import { cx } from '../../lib/cx.js';
 import { HeroStats } from './HeroStats.jsx';
+import { MaintenanceNotice } from './MaintenanceNotice.jsx';
 import { MistCanvas } from './MistCanvas.jsx';
 import { OfflineNotice } from './OfflineNotice.jsx';
 import { Preseason } from './Preseason.jsx';
@@ -9,6 +10,7 @@ import { WhitelistForm } from './WhitelistForm.jsx';
 import './Hero.css';
 
 export function Hero({ preseason, seasonStart, connection, status, cue }) {
+    const maintenance = status?.maintenance?.enabled ? status.maintenance : null;
     return (
         <section className={cx('hero', preseason && 'is-preseason', (preseason || connection === 'offline') && 'is-glitch')}>
             <MistCanvas />
@@ -19,7 +21,8 @@ export function Hero({ preseason, seasonStart, connection, status, cue }) {
                 {preseason && <Preseason start={seasonStart} />}
                 {preseason && <WhitelistForm />}
                 {!preseason && connection === 'offline' && <OfflineNotice />}
-                {!preseason && connection !== 'offline' && (
+                {!preseason && maintenance && <MaintenanceNotice reason={maintenance.reason} />}
+                {!preseason && connection !== 'offline' && !maintenance && (
                     <>
                         <p className="hero-lead">
                             Je wordt wakker in een bos. Je weet niet waar je bent, of hoe je hier kwam.

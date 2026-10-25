@@ -22,7 +22,7 @@
 .hero-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; width: min(560px, 100%); }
 .hero-stat,
 .preseason,
-.hero-offline {
+.hero-offline, .hero-maintenance {
     border-radius: var(--radius);
     background: var(--card); border: 2px solid var(--edge); box-shadow: var(--bevel);
 }
@@ -36,6 +36,10 @@
 .preseason-date { color: var(--muted); font-size: .85rem; }
 
 .hero-offline { display: flex; align-items: center; justify-content: center; gap: 12px; width: min(560px, 100%); padding: 20px; font-family: var(--pixel); font-size: 1.3rem; text-shadow: 2px 2px 0 #000; }
+.hero-maintenance { display: flex; flex-direction: column; align-items: center; gap: 8px; width: min(560px, 100%); padding: 20px; text-align: center; }
+.hero-maintenance-title { display: flex; align-items: center; gap: 12px; font-family: var(--pixel); font-size: 1.3rem; text-shadow: 2px 2px 0 #000; }
+.hero-maintenance p { margin: 0; color: var(--muted); }
+.maintenance-dot { width: 12px; height: 12px; background: var(--orange); flex: none; animation: pulse 2s infinite; }
 .offline-dot { width: 12px; height: 12px; background: var(--red); flex: none; animation: pulse 2s infinite; }
 
 @keyframes logo-jitter {
