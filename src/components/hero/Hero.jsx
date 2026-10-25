@@ -9,8 +9,7 @@ import { ScrollCue } from './ScrollCue.jsx';
 import { WhitelistForm } from './WhitelistForm.jsx';
 import './Hero.css';
 
-export function Hero({ preseason, seasonStart, connection, status, cue }) {
-    const maintenance = status?.maintenance?.enabled ? status.maintenance : null;
+export function Hero({ preseason, seasonStart, connection, maintenance, status, cue }) {
     return (
         <section className={cx('hero', preseason && 'is-preseason', (preseason || connection === 'offline') && 'is-glitch')}>
             <MistCanvas />

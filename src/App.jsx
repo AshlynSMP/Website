@@ -19,7 +19,8 @@ export default function App() {
     const beforeSeason = useIsBefore(SEASON_START ?? 0);
     const preseason = SEASON_START === null || beforeSeason;
     const { status, connection } = useStatus({ paused: preseason });
-    const online = connection === 'online';
+    const maintenance = connection === 'online' && status?.maintenance?.enabled ? status.maintenance : null;
+    const online = connection === 'online' && !maintenance;
     useGlitchStorm({ enabled: preseason || connection === 'offline' });
 
     return (
@@ -30,6 +31,7 @@ export default function App() {
                     preseason={preseason}
                     seasonStart={SEASON_START}
                     connection={connection}
+                    maintenance={maintenance}
                     status={status}
                     cue={preseason && config.showModpackBeforeSeason ? MODPACK_CUE : null}
                 />
