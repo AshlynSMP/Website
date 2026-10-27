@@ -1,20 +1,24 @@
 import { Card, Chip, PlayerHead } from '../ui';
 import { useOpenProfile } from './ProfileContext.jsx';
+import { cx } from '../../lib/cx.js';
 import { relative } from '../../lib/format.js';
 
-const byRecent = (a, b) => (b.online - a.online) || (b.lastSeen - a.lastSeen);
+const byRecent = (a, b) => (Boolean(a.out) - Boolean(b.out)) || (b.online - a.online) || (b.lastSeen - a.lastSeen);
+
+function seenText(player) {
+    if (player.out) return `Uitgeschakeld ${relative(player.out)}`;
+    return player.online ? '● Nu online' : `Gezien ${relative(player.lastSeen)}`;
+}
 
 function RosterPlayer({ player }) {
     const openProfile = useOpenProfile();
     return (
         <li>
-            <button className="roster-player" type="button" onClick={() => openProfile(player.name)}>
+            <button className={cx('roster-player', player.out && 'is-out')} type="button" onClick={() => openProfile(player.name)}>
                 <PlayerHead name={player.name} size={48} />
                 <span>
                     <span className="name">{player.name}</span>
-                    <span className={player.online ? 'seen is-online' : 'seen'}>
-                        {player.online ? '● Nu online' : `Gezien ${relative(player.lastSeen)}`}
-                    </span>
+                    <span className={cx('seen', player.online && !player.out && 'is-online')}>{seenText(player)}</span>
                 </span>
             </button>
         </li>

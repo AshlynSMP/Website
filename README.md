@@ -16,6 +16,14 @@ The website for the Ashlyn SMP. Built with [Vite](https://vite.dev) and React.
 - **Modpack**: the [Ashlyn SMP modpack](https://modrinth.com/modpack/ashlynsmp) with its latest version and last update live from the Modrinth API, and a step-by-step install guide. Nothing links to the resource pack repo, since it would spoil the story
 - A mist effect for Mistwalkers
 
+## Season end
+
+Set `seasonEnd` in [`src/config.js`](src/config.js) (`dd-mm-yyyy hh:mm`, like `seasonStart`). From that moment the site switches to an end page: the logo with "Seizoen II · Afgelopen" and the dates, the season in numbers, Wrapped, a hall of fame and the full story with every event. Everything comes from `wrapped.json`, so the server can be off by then. The glitch effects are off on this page. Leave `seasonEnd` at `null` while the season is running.
+
+## Wrapped
+
+Run `/wrapped export` on the server at the end of the season. Copy the `plugins/Core/wrapped.json` it writes into a `public/` folder in this repo (`public/wrapped.json`) and push. Once `seasonEnd` has passed, the end page shows a Wrapped section where every player can click through their season in slides, with their own link: `/#wrapped/<name>`. On the last slide players can save their Wrapped as one story-sized image (1080×1920) to share; on a phone it opens the share menu, on a computer it downloads. Without the file there's no Wrapped section.
+
 ## Pre-season
 
 Until `seasonStart` (`dd-mm-yyyy hh:mm`, in `timezone`, `Europe/Amsterdam` by default; every date and time on the site is shown in that timezone too, whatever the visitor's own timezone is) in [`src/config.js`](src/config.js), the site only shows the logo and a countdown to the start of Season II. Leave it `null` while there's no date yet; the countdown then shows scrambled question marks instead of numbers. At the start time it switches to the live site by itself.

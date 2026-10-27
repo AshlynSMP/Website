@@ -1,5 +1,6 @@
 .profile-body { display: flex; gap: 28px; align-items: center; }
 .profile-skin { width: 120px; image-rendering: pixelated; filter: drop-shadow(0 6px 0 #00000080); flex: none; }
+.is-out .profile-skin { filter: grayscale(1) drop-shadow(0 6px 0 #00000080); opacity: .6; }
 .profile-info { flex: 1; min-width: 0; }
 .profile-info h3 { font-size: 1.35rem; color: var(--text); margin-bottom: 6px; }
 .profile-seen { margin: 8px 0 0; }

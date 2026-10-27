@@ -1,4 +1,5 @@
 import { Dialog, Facts, PlayerTags } from '../ui';
+import { cx } from '../../lib/cx.js';
 import { formatDate, relative } from '../../lib/format.js';
 import { bodyUrl, dimensionLabel, STATS } from '../../lib/game.js';
 import './ProfileDialog.css';
@@ -10,6 +11,7 @@ function findPlayer(status, name) {
 }
 
 function seenText(player) {
+    if (player.out) return `Uitgeschakeld ${relative(player.out)}`;
     const seen = player.online ? 'Nu online' : `Laatst gezien ${relative(player.lastSeen)}`;
     if (!player.firstPlayed) return seen;
     return `${seen} · speelt sinds ${formatDate(player.firstPlayed, { day: 'numeric', month: 'long', year: 'numeric' })}`;
@@ -25,7 +27,7 @@ export function ProfileDialog({ status, name, onClose }) {
     const player = name && findPlayer(status, name);
 
     return (
-        <Dialog open={Boolean(player)} onClose={onClose} className="profile">
+        <Dialog open={Boolean(player)} onClose={onClose} className={cx('profile', player?.out && 'is-out')}>
             {player && (
                 <div className="profile-body">
                     <img className="profile-skin" src={bodyUrl(player.name, 240)} alt="" />

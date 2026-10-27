@@ -24,6 +24,8 @@
 .roster-player .seen { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .seen { font-size: .72rem; color: var(--faint); }
 .seen.is-online { color: var(--green); }
+.is-out .head { filter: grayscale(1); opacity: .5; }
+.is-out .name { color: var(--faint); }
 
 @media (max-width: 980px) {
     .players-grid { grid-template-columns: 1fr; }

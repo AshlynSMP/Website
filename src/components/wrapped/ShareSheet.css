@@ -1,0 +1,19 @@
+.share-sheet { width: min(440px, calc(100vw - 32px)); }
+.share-sheet h3 { color: var(--text); font-size: 1.1rem; margin: 0 40px 16px 0; }
+.share-preview {
+    display: grid; place-items: center; aspect-ratio: 9 / 16; max-height: 52vh; margin: 0 auto 18px;
+    background: #0006; border: 2px solid var(--edge); border-radius: var(--radius-sm); overflow: hidden;
+}
+.share-preview img { width: 100%; height: 100%; object-fit: contain; }
+.share-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.share-action {
+    flex: 1 1 40%; display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 10px;
+    border: 2px solid var(--edge); border-radius: 3px; background: #2a1a3a; color: var(--text);
+    font: 600 .85rem var(--sans); text-align: center; cursor: pointer; box-shadow: var(--bevel);
+}
+.share-action:hover { color: var(--text); filter: brightness(1.15); }
+.share-action.primary { flex-basis: 100%; background: var(--purple); box-shadow: inset 2px 2px 0 #ffffff33, inset -2px -3px 0 #00000059; }
+
+@media (max-width: 640px) {
+    .share-sheet[open] { margin: auto auto 0; width: 100vw; max-width: 100vw; border-radius: var(--radius) var(--radius) 0 0; }
+}

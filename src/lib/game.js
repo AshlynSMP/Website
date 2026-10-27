@@ -14,6 +14,9 @@ export const DEFAULT_EVENT_LIVE_MS = 3 * 3600000;
 const SIGNALS = { clear: 'Helder', scrambled: 'Storing', offline: 'Stil' };
 export const signalLabel = (signal) => SIGNALS[signal] ?? '–';
 
+export const isFinal = (status) => Boolean(status?.story?.final);
+export const standing = (roster = []) => roster.filter((p) => !p.out);
+
 export const hasTowers = (status) => (status?.story?.act ?? 0) >= 2 && Boolean(status.radio);
 
 export const dimensionLabel = (dimension) => DIMENSIONS[dimension] ?? dimension;

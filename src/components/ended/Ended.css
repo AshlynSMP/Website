@@ -1,0 +1,31 @@
+.season-numbers { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); }
+.season-numbers li {
+    display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 22px 12px;
+    background: var(--card); border: 2px solid var(--edge); border-radius: var(--radius); box-shadow: var(--bevel);
+}
+.season-numbers .num { font-family: var(--pixel); font-size: clamp(1.4rem, 4vw, 2.2rem); line-height: 1.2; text-shadow: 2px 2px 0 #000; }
+.season-numbers .cap { color: var(--muted); font-size: .85rem; }
+
+.hall-of-fame { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.fame-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.fame-row {
+    width: 100%; display: flex; align-items: center; gap: 10px; padding: 7px 10px 7px 6px;
+    border: 0; border-radius: var(--radius-sm); background: var(--inset); color: inherit; font: inherit; text-align: left; cursor: pointer;
+    transition: background .15s;
+}
+.fame-row:hover { background: var(--inset-hover); }
+.fame-row .rank { width: 22px; text-align: center; font-family: var(--pixel); color: var(--faint); flex: none; }
+.fame-row.top1 .rank { color: #ffd84a; }
+.fame-row.top2 .rank { color: #d9e1ea; }
+.fame-row.top3 .rank { color: #e0955a; }
+.fame-row .head { width: 28px; height: 28px; }
+.fame-row .name { flex: 1; min-width: 0; }
+.fame-row .value { font-family: var(--mono); font-size: .82rem; white-space: nowrap; color: var(--muted); }
+
+@media (max-width: 980px) {
+    .hall-of-fame { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+    .season-numbers, .hall-of-fame { grid-template-columns: 1fr 1fr; }
+    .hall-of-fame { grid-template-columns: 1fr; }
+}

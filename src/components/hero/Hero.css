@@ -34,6 +34,9 @@
 .preseason-label { font-family: var(--pixel); font-size: .85rem; color: var(--gold); }
 .preseason .countdown { width: 100%; }
 .preseason-date { color: var(--muted); font-size: .85rem; }
+.season-summary { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; margin: 6px 0 0; padding: 12px 0 0; width: 100%; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+.season-summary strong { color: var(--text); font-family: var(--pixel); font-weight: 400; }
+.season-ended { font-family: var(--pixel); font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.2; text-shadow: 2px 2px 0 #000; }
 
 .hero-offline { display: flex; align-items: center; justify-content: center; gap: 12px; width: min(560px, 100%); padding: 20px; font-family: var(--pixel); font-size: 1.3rem; text-shadow: 2px 2px 0 #000; }
 .hero-maintenance { display: flex; flex-direction: column; align-items: center; gap: 8px; width: min(560px, 100%); padding: 20px; text-align: center; }

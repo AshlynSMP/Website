@@ -11,7 +11,7 @@ function Row({ player, rank, stat, max, animate }) {
     const openProfile = useOpenProfile();
     const value = player[stat] ?? 0;
     return (
-        <li className={cx('board-row', rank <= 3 && `top${rank}`, animate && 'enter')} onClick={() => openProfile(player.name)}>
+        <li className={cx('board-row', rank <= 3 && `top${rank}`, player.out && 'is-out', animate && 'enter')} onClick={() => openProfile(player.name)}>
             <span className="rank">{rank}</span>
             <PlayerHead name={player.name} size={48} />
             <div className="board-body">
