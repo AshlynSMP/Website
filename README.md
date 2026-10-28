@@ -30,6 +30,10 @@ Until `seasonStart` (`dd-mm-yyyy hh:mm`, in `timezone`, `Europe/Amsterdam` by de
 
 Set `showModpackBeforeSeason: true` to also show the modpack block below the countdown. Under the countdown there's a whitelist form. It only shows up when the Core API can be reached and takes requests; leaders handle them in-game with `/aanvragen`. Without the API the site still works, just without the form.
 
+## Playtest reports
+
+With `playtestReport: true` in [`src/config.js`](src/config.js), playtesters can file a bug report at `/#melden`. The form sends it by email to `crewEmail` through [FormSubmit](https://formsubmit.co), so no backend is needed. The very first report triggers an activation email to that address; click the link in it, otherwise nothing gets delivered. Set `playtestReport: false` to turn the page off; `/#melden` then shows the normal site.
+
 ## Setup
 
 1. Turn on the web API in Core's `config.yml` (`web.enabled: true`) and restart the server.
@@ -76,6 +80,7 @@ src/
     live/            online players, event, radio towers, activity
     players/         leaderboard, all players, profile popup
     modpack/         modpack card and install guide
+    report/          playtest bug report page
   hooks/             data and timing (useStatus, useModpack, useNow, ...)
   lib/               plain helpers (formatting, game labels)
 ```

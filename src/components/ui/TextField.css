@@ -1,9 +1,17 @@
 .text-field { display: flex; flex-direction: column; gap: 4px; min-width: 0; text-align: left; }
 .text-field span { color: var(--faint); font-size: .78rem; }
-.text-field input {
+.text-field input,
+.text-field textarea,
+.text-field select {
     width: 100%; padding: 9px 12px; border-radius: 3px;
     background: #0006; border: 2px solid var(--edge); color: var(--text);
     font: 500 .95rem var(--sans);
 }
-.text-field input::placeholder { color: var(--faint); }
-.text-field input:focus { outline: none; border-color: var(--purple); }
+.text-field textarea { resize: vertical; min-height: 96px; line-height: 1.5; }
+.text-field select { appearance: none; cursor: pointer; padding-right: 32px; background: #0006 linear-gradient(45deg, transparent 50%, var(--violet) 50%) no-repeat right 14px center / 8px 8px; }
+.text-field select option { background: var(--card); color: var(--text); }
+.text-field input::placeholder,
+.text-field textarea::placeholder { color: var(--faint); }
+.text-field input:focus,
+.text-field textarea:focus,
+.text-field select:focus { outline: none; border-color: var(--purple); }

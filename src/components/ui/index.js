@@ -11,4 +11,4 @@ export { PlayerHead } from './PlayerHead.jsx';
 export { PlayerTags } from './PlayerTags.jsx';
 export { Section, Subhead } from './Section.jsx';
 export { Tabs } from './Tabs.jsx';
-export { TextField } from './TextField.jsx';
+export { SelectField, TextField } from './TextField.jsx';

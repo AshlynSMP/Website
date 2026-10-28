@@ -6,10 +6,12 @@ import { LiveSection } from './components/live/LiveSection.jsx';
 import { ModpackSection } from './components/modpack/ModpackSection.jsx';
 import { PlayersSection } from './components/players/PlayersSection.jsx';
 import { ProfileProvider } from './components/players/ProfileContext.jsx';
+import { ReportPage } from './components/report/ReportPage.jsx';
 import { StorySection } from './components/story/StorySection.jsx';
 import { WrappedStory } from './components/wrapped/WrappedStory.jsx';
 import { config } from './config.js';
 import { useGlitchStorm } from './hooks/useGlitchStorm.js';
+import { useHash } from './hooks/useHash.js';
 import { useIsBefore } from './hooks/useIsBefore.js';
 import { useStatus } from './hooks/useStatus.js';
 import { useWrapped } from './hooks/useWrapped.js';
@@ -21,6 +23,12 @@ const SEASON_START = config.seasonStart ? parseDate(config.seasonStart, config.t
 const SEASON_END = config.seasonEnd ? parseDate(config.seasonEnd, config.timezone) : null;
 
 export default function App() {
+    const hash = useHash();
+    if (config.playtestReport && hash === '#melden') return <ReportPage />;
+    return <Site />;
+}
+
+function Site() {
     const beforeStart = useIsBefore(SEASON_START ?? 0);
     const beforeEnd = useIsBefore(SEASON_END ?? Infinity);
     const phase = SEASON_START === null || beforeStart ? 'preseason' : beforeEnd ? 'live' : 'ended';
