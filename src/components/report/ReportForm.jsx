@@ -49,10 +49,10 @@ const blank = () => ({
     honey: ''
 });
 
-export function ReportForm() {
+export function ReportForm({ defaults }) {
     const modpack = useModpack(config.modpack);
     const { status, error, submit, reset } = useReport();
-    const [report, setReport] = useState(blank);
+    const [report, setReport] = useState(() => ({ ...blank(), ...defaults }));
     const [invalid, setInvalid] = useState(null);
 
     useEffect(() => {
@@ -81,7 +81,7 @@ export function ReportForm() {
     }
 
     function again() {
-        setReport({ ...blank(), modpack: report.modpack });
+        setReport({ ...blank(), ...defaults, modpack: report.modpack });
         reset();
     }
 

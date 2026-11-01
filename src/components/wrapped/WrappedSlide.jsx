@@ -29,7 +29,7 @@ function DimensionBars({ dimensions }) {
 export function WrappedSlide({ slide, accent, children }) {
     return (
         <div className={`wrapped-slide accent-${accent}`}>
-            {slide.head && <PlayerHead name={slide.value} size={128} />}
+            {slide.head && <PlayerHead uuid={slide.uuid} name={slide.value} size={128} />}
             <span className="wrapped-label">{slide.label}</span>
             <span className={slide.small ? 'wrapped-value small' : 'wrapped-value'}>{slide.value}</span>
             {slide.sub && <span className="wrapped-sub">{slide.sub}</span>}

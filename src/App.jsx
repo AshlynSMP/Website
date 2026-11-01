@@ -4,6 +4,7 @@ import { Footer } from './components/layout/Footer.jsx';
 import { Nav } from './components/layout/Nav.jsx';
 import { LiveSection } from './components/live/LiveSection.jsx';
 import { ModpackSection } from './components/modpack/ModpackSection.jsx';
+import { PortalPage } from './components/portal/PortalPage.jsx';
 import { PlayersSection } from './components/players/PlayersSection.jsx';
 import { ProfileProvider } from './components/players/ProfileContext.jsx';
 import { ReportPage } from './components/report/ReportPage.jsx';
@@ -11,20 +12,24 @@ import { StorySection } from './components/story/StorySection.jsx';
 import { WrappedStory } from './components/wrapped/WrappedStory.jsx';
 import { config } from './config.js';
 import { useGlitchStorm } from './hooks/useGlitchStorm.js';
-import { useHash } from './hooks/useHash.js';
 import { useIsBefore } from './hooks/useIsBefore.js';
+import { usePath } from './hooks/usePath.js';
 import { useStatus } from './hooks/useStatus.js';
 import { useWrapped } from './hooks/useWrapped.js';
 import { parseDate } from './lib/format.js';
+import { upgradeOldHashes } from './lib/router.js';
 
 const MODPACK_CUE = { target: 'modpack', label: 'Bekijk de modpack' };
 const WRAPPED_CUE = { target: 'wrapped', label: 'Bekijk je Wrapped' };
 const SEASON_START = config.seasonStart ? parseDate(config.seasonStart, config.timezone) : null;
 const SEASON_END = config.seasonEnd ? parseDate(config.seasonEnd, config.timezone) : null;
 
+upgradeOldHashes();
+
 export default function App() {
-    const hash = useHash();
-    if (config.playtestReport && hash === '#melden') return <ReportPage />;
+    const path = usePath();
+    if (config.playtestReport && path === '/melden') return <ReportPage />;
+    if (config.portal && (path === '/portal' || path.startsWith('/portal/'))) return <PortalPage path={path} />;
     return <Site />;
 }
 

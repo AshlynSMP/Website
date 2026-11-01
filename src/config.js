@@ -8,5 +8,10 @@ export const config = {
     timezone: 'Europe/Amsterdam',
     modpack: 'ashlynsmp',
     playtestReport: true,
-    crewEmail: 'crew@ashlyn.nl'
+    crewEmail: 'crew@ashlyn.nl',
+    portal: true,
+    watchdog: {
+        url: 'https://watchdog.ashlyn.nl',
+        clientId: '4095e67c-5683-4766-a44b-a388d2e3379e'
+    }
 };

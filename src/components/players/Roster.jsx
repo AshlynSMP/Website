@@ -15,7 +15,7 @@ function RosterPlayer({ player }) {
     return (
         <li>
             <button className={cx('roster-player', player.out && 'is-out')} type="button" onClick={() => openProfile(player.name)}>
-                <PlayerHead name={player.name} size={48} />
+                <PlayerHead uuid={player.uuid} name={player.name} size={48} />
                 <span>
                     <span className="name">{player.name}</span>
                     <span className={cx('seen', player.online && !player.out && 'is-online')}>{seenText(player)}</span>

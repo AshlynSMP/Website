@@ -1,5 +1,9 @@
-import { headUrl } from '../../lib/game.js';
+import { fallbackTo, headFallbackUrl, headUrl } from '../../lib/game.js';
 
-export function PlayerHead({ name, size = 48 }) {
-    return <img className="head" src={headUrl(name, size)} alt="" loading="lazy" />;
+export function PlayerHead({ uuid, name, size = 48 }) {
+    const player = { uuid, name };
+    return (
+        <img className="head" src={headUrl(player)} width={size} height={size} alt="" loading="lazy"
+            onError={fallbackTo(headFallbackUrl(player))} />
+    );
 }

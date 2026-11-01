@@ -1,7 +1,7 @@
 import { Dialog, Facts, PlayerTags } from '../ui';
 import { cx } from '../../lib/cx.js';
 import { formatDate, relative } from '../../lib/format.js';
-import { bodyUrl, dimensionLabel, STATS } from '../../lib/game.js';
+import { bodyFallbackUrl, bodyUrl, dimensionLabel, fallbackTo, STATS } from '../../lib/game.js';
 import './ProfileDialog.css';
 
 function findPlayer(status, name) {
@@ -30,7 +30,7 @@ export function ProfileDialog({ status, name, onClose }) {
         <Dialog open={Boolean(player)} onClose={onClose} className={cx('profile', player?.out && 'is-out')}>
             {player && (
                 <div className="profile-body">
-                    <img className="profile-skin" src={bodyUrl(player.name, 240)} alt="" />
+                    <img className="profile-skin" src={bodyUrl(player)} alt="" onError={fallbackTo(bodyFallbackUrl(player))} />
                     <div className="profile-info">
                         <h3>{player.name}</h3>
                         <PlayerTags op={player.live?.op} />

@@ -1,6 +1,6 @@
 import packImg from '../assets/img/pack.png';
 import titleImg from '../assets/img/title.png';
-import { headUrl } from './game.js';
+import { headFallbackUrl, headUrl } from './game.js';
 import { highlights, summaryFacts } from './wrapped.js';
 
 const WIDTH = 1080;
@@ -73,7 +73,7 @@ function fitFont(ctx, text, family, size, maxWidth) {
 
 export async function renderWrappedImage(player) {
     await Promise.all([document.fonts.load(`40px ${PIXEL}`), document.fonts.ready]);
-    const [title, pack, head] = await Promise.all([loadImage(titleImg), loadImage(packImg), loadImage(headUrl(player.name, 256))]);
+    const [title, pack, head] = await Promise.all([loadImage(titleImg), loadImage(packImg), loadImage(headUrl(player)).catch(() => loadImage(headFallbackUrl(player)))]);
 
     const canvas = document.createElement('canvas');
     canvas.width = WIDTH;

@@ -13,7 +13,7 @@ function Row({ player, rank, stat, max, animate }) {
     return (
         <li className={cx('board-row', rank <= 3 && `top${rank}`, player.out && 'is-out', animate && 'enter')} onClick={() => openProfile(player.name)}>
             <span className="rank">{rank}</span>
-            <PlayerHead name={player.name} size={48} />
+            <PlayerHead uuid={player.uuid} name={player.name} size={48} />
             <div className="board-body">
                 <div className="board-line">
                     <span className="name">{player.name}</span>

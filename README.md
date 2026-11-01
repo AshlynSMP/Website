@@ -32,7 +32,22 @@ Set `showModpackBeforeSeason: true` to also show the modpack block below the cou
 
 ## Playtest reports
 
-With `playtestReport: true` in [`src/config.js`](src/config.js), playtesters can file a bug report at `/#melden`. The form sends it by email to `crewEmail` through [FormSubmit](https://formsubmit.co), so no backend is needed. The very first report triggers an activation email to that address; click the link in it, otherwise nothing gets delivered. Set `playtestReport: false` to turn the page off; `/#melden` then shows the normal site.
+With `playtestReport: true` in [`src/config.js`](src/config.js), playtesters can file a bug report at `/melden`. The form sends it by email to `crewEmail` through [FormSubmit](https://formsubmit.co), so no backend is needed. The very first report triggers an activation email to that address; click the link in it, otherwise nothing gets delivered. Set `playtestReport: false` to turn the page off; `/melden` then shows the normal site. Old `/#melden` links still work.
+
+## Player portal
+
+With `portal: true` in [`src/config.js`](src/config.js), players can sign in at `/portal` with their Watchdog account. The first time, the portal shows a code they type in-game as `/koppel <code>` to link their Minecraft account. After that they get:
+
+- `/portal`: their profile, stats with ranks, the next event, the current act, recent activity and who's online
+- `/portal/stats`: all their stats with ranks, when they play, time per world and how they compare to the average
+- `/portal/events`: planned events to sign up for (or add to a calendar), and past events with whether they were there
+- `/portal/melden`: the bug report form with their name filled in
+- `/portal/account`: their linked accounts, unlinking and logging out
+- `/portal/leiders`: for leaders only: whitelist requests, planning events, maintenance and the whitelist form, and who has linked
+
+It needs the portal turned on in Core (`web.portal.enabled: true`) and an interactive client in Watchdog with `clientId` from `watchdog` as client ID, PKCE on, and `https://<site>/portal` (e.g. `https://smp.ashlyn.nl/portal`) as redirect URI. Set `portal: false` to turn the page off.
+
+The site uses real paths like `/portal/stats`. GitHub Pages has no routing, so the build copies `index.html` to `404.html` and the app reads the path itself. That needs the site to run at the root of its domain.
 
 ## Setup
 
@@ -81,6 +96,7 @@ src/
     players/         leaderboard, all players, profile popup
     modpack/         modpack card and install guide
     report/          playtest bug report page
+    portal/          player portal: Watchdog login, linking, stats, events, leaders
   hooks/             data and timing (useStatus, useModpack, useNow, ...)
   lib/               plain helpers (formatting, game labels)
 ```

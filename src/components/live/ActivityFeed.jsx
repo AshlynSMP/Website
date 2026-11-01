@@ -23,7 +23,7 @@ function ActivityItem({ event, isNew }) {
     const openProfile = useOpenProfile();
     return (
         <li className={cx('act', event.frame && `frame-${event.frame}`, isNew && 'new')} onClick={() => openProfile(event.player)}>
-            <PlayerHead name={event.player} size={48} />
+            <PlayerHead uuid={event.uuid} name={event.player} size={48} />
             <span className="text">
                 <strong>{event.player}</strong> {MESSAGES[event.type](event)}
             </span>

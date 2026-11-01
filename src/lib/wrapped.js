@@ -53,7 +53,7 @@ function favoriteDimension(minutes) {
 }
 
 export function buildSlides(player, players) {
-    const slides = [{ id: 'intro', label: 'Seizoen II', value: player.name, sub: 'Dit was jouw seizoen.', head: true }];
+    const slides = [{ id: 'intro', label: 'Seizoen II', value: player.name, sub: 'Dit was jouw seizoen.', head: true, uuid: player.uuid }];
 
     const hours = Math.round(player.playtimeMinutes / 60);
     const beaten = percentBeaten(players, player, 'playtimeMinutes');
@@ -127,6 +127,7 @@ export function buildSlides(player, players) {
         label: 'Seizoen II',
         value: player.name,
         head: true,
+        uuid: player.uuid,
         facts: summaryFacts(player)
     });
 

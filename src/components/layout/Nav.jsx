@@ -5,7 +5,7 @@ import './Nav.css';
 export function Nav({ links = true }) {
     return (
         <header className="nav">
-            <a className="nav-brand" href={links ? '#top' : './'}>
+            <a className="nav-brand" href={links ? '#top' : '/'}>
                 <img src={packImg} alt="" />
                 <span>Ashlyn SMP</span>
             </a>

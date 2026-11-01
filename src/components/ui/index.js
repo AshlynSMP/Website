@@ -6,6 +6,7 @@ export { Dialog } from './Dialog.jsx';
 export { Empty } from './Empty.jsx';
 export { Facts } from './Facts.jsx';
 export { GlitchText } from './GlitchText.jsx';
+export { Link } from './Link.jsx';
 export { Meter } from './Meter.jsx';
 export { PlayerHead } from './PlayerHead.jsx';
 export { PlayerTags } from './PlayerTags.jsx';

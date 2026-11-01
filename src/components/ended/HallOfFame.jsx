@@ -14,7 +14,7 @@ export function HallOfFame({ players, onOpen }) {
                                 <li key={p.uuid}>
                                     <button type="button" className={cx('fame-row', `top${i + 1}`)} onClick={() => onOpen(p.name)}>
                                         <span className="rank">{i + 1}</span>
-                                        <PlayerHead name={p.name} size={48} />
+                                        <PlayerHead uuid={p.uuid} name={p.name} size={48} />
                                         <span className="name">{p.name}</span>
                                         <span className="value">{category.format(p[category.key])}</span>
                                     </button>

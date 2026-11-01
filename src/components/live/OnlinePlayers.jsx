@@ -18,7 +18,7 @@ function OnlinePlayer({ player, isNew }) {
             onClick={open}
             onKeyDown={(e) => e.key === 'Enter' && open()}
         >
-            <PlayerHead name={name} size={96} />
+            <PlayerHead uuid={player.uuid} name={name} size={96} />
             <div className="op-info">
                 <div className="op-top">
                     <span className="name">{name}</span>
