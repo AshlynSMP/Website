@@ -31,6 +31,7 @@ export function Leaders({ onChange }) {
                 <Requests requests={admin.data.requests} onChange={refresh} />
                 <PlanEvent onChange={refresh} />
                 <Settings data={admin.data} onChange={refresh} />
+                <Whitelisted names={admin.data.whitelisted ?? []} />
                 <Linked linked={admin.data.linked} unlinked={admin.data.unlinked} />
             </div>
         </>
@@ -157,6 +158,18 @@ function Settings({ data, onChange }) {
                     </Button>
                 </div>
             </div>
+        </Card>
+    );
+}
+
+function Whitelisted({ names }) {
+    return (
+        <Card title="Whitelist" aside={<Chip>{names.length}</Chip>}>
+            {names.length === 0 ? <Empty>Nog niemand op de whitelist.</Empty> : (
+                <ul className="portal-online">
+                    {names.map((name) => <li key={name}><PlayerHead name={name} size={28} /><span>{name}</span></li>)}
+                </ul>
+            )}
         </Card>
     );
 }
