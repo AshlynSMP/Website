@@ -10,7 +10,7 @@ const MESSAGES = {
     'join': () => 'kwam online',
     'first-join': () => 'is voor het eerst op de server!',
     'quit': () => 'ging offline',
-    'death': () => 'is gestorven',
+    'death': (e) => e.cause ?? 'is gestorven',
     'advancement': (e) => (
         <>
             {ADVANCEMENT_VERBS[e.frame] ?? 'behaalde'}{' '}

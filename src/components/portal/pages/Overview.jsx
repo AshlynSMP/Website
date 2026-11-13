@@ -4,7 +4,7 @@ import { dimensionLabel } from '../../../lib/game.js';
 import { averageText, EventButtons, goingText, rankText, StatTile } from '../shared.jsx';
 
 function activityText(item) {
-    if (item.type === 'death') return ['✕', 'death', 'Doodgegaan'];
+    if (item.type === 'death') return ['✕', 'death', item.cause ? item.cause[0].toUpperCase() + item.cause.slice(1) : 'Doodgegaan'];
     if (item.type === 'advancement') return ['★', 'advancement', item.title];
     return null;
 }
