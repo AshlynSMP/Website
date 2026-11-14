@@ -37,7 +37,7 @@ export function Hero({ phase, seasonStart, seasonEnd, connection, maintenance, s
                             En welke kant je ook op loopt, je komt altijd weer terug.
                         </p>
                         {status && <HeroStats status={status} />}
-                        <WhitelistForm />
+                        <WhitelistForm portalLink />
                     </>
                 )}
             </div>

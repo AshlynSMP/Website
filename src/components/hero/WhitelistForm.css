@@ -8,6 +8,7 @@
 .whitelist-fields .btn { justify-content: center; }
 .whitelist-fields .btn:disabled { filter: grayscale(.5); cursor: default; }
 .whitelist-error { margin: 0; color: var(--red); font-size: .85rem; }
+.whitelist .whitelist-portal { width: 100%; margin: 0; padding-top: 12px; border-top: 1px solid var(--line); text-shadow: none; font-size: .85rem; }
 .whitelist-done { margin: 0; color: var(--muted); font-size: .9rem; }
 
 @media (max-width: 640px) {

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button, TextField } from '../ui';
 import { useWhitelist } from '../../hooks/useWhitelist.js';
 import { NAME_PATTERN } from '../../lib/whitelist.js';
+import { PortalCta } from './PortalCta.jsx';
 import './WhitelistForm.css';
 
 const ERRORS = {
@@ -15,13 +16,13 @@ const ERRORS = {
 };
 const FALLBACK_ERROR = 'Aanmelden lukt nu niet. Probeer het later opnieuw.';
 
-export function WhitelistForm() {
+export function WhitelistForm({ portalLink = false }) {
     const { open, status, error, submit } = useWhitelist();
     const [name, setName] = useState('');
     const [realName, setRealName] = useState('');
     const [invalid, setInvalid] = useState(null);
 
-    if (!open) return null;
+    if (!open) return portalLink ? <PortalCta lead="Speel je mee?" /> : null;
 
     if (status === 'done') {
         return (
@@ -75,6 +76,7 @@ export function WhitelistForm() {
                 </Button>
             </div>
             {message && <p className="whitelist-error" role="alert">{message}</p>}
+            {portalLink && <PortalCta className="whitelist-portal" />}
         </form>
     );
 }

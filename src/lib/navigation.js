@@ -4,3 +4,5 @@ export const SECTIONS = [
     { id: 'spelers', label: 'Spelers' },
     { id: 'modpack', label: 'Modpack' }
 ];
+
+export const PORTAL_PATH = '/portal';

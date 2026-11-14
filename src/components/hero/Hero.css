@@ -84,3 +84,7 @@
     .hero-stat { padding: 10px 6px; }
     .hero-stat .cap { font-size: .7rem; line-height: 1.3; }
 }
+
+.hero-portal { margin: 14px 0 0; color: var(--muted); font-size: .9rem; text-shadow: 2px 2px 0 #000; }
+.hero-portal a { color: var(--violet); font-weight: 600; }
+.hero-portal a:hover { color: var(--pink); }
