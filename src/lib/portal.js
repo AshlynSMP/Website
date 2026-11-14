@@ -117,6 +117,8 @@ export const createCode = () => authed('/portal/link', 'POST');
 export const unlink = () => authed('/portal/link', 'DELETE');
 export const fetchEvents = () => authed('/portal/events');
 export const answerEvent = (time, going) => authed('/portal/rsvp', 'POST', { time, going });
+export const fetchChat = (after) => authed(`/portal/chat?after=${after}`);
+export const sendChat = (message) => authed('/portal/chat', 'POST', { message });
 export const fetchAdmin = () => authed('/portal/admin');
 export const handleRequest = (name, action) => authed('/portal/admin/requests', 'POST', { name, action });
 export const planEvent = (name, time) => authed('/portal/admin/events', 'POST', { name, time });

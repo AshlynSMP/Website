@@ -149,6 +149,20 @@
 .portal-setting { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 12px; background: var(--inset); border-radius: 3px; }
 .portal-setting .btn { min-width: 72px; justify-content: center; }
 
+.portal-chat { display: flex; flex-direction: column; gap: 12px; }
+.portal-chat-log { list-style: none; margin: 0; padding: 4px; display: flex; flex-direction: column; gap: 2px; height: min(60vh, 520px); overflow-y: auto; background: #0006; border: 2px solid var(--edge); border-radius: 3px; font-size: .95rem; }
+.portal-chat-log li { display: flex; align-items: flex-start; gap: 8px; padding: 4px 6px; line-height: 1.4; }
+.portal-chat-log li:hover { background: var(--inset); }
+.portal-chat-log .head { width: 20px; height: 20px; image-rendering: pixelated; flex: none; margin-top: 1px; }
+.portal-chat-log p { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.portal-chat-log strong { font-weight: 600; }
+.portal-chat-log time { color: var(--muted); font: .75rem var(--mono); margin-left: auto; padding-left: 8px; flex: none; margin-top: 3px; }
+.portal-chat-web { color: var(--muted); font-size: .8rem; }
+.portal-chat-log .empty { margin: auto; }
+.portal-chat-form { display: flex; gap: 10px; }
+.portal-chat-form input { flex: 1; min-width: 0; min-height: 44px; padding: 0 12px; background: #0006; color: var(--text); border: 2px solid var(--edge); border-radius: 3px; font: inherit; }
+.portal-chat-form input:focus { border-color: var(--violet); outline: none; }
+
 @media (max-width: 900px) {
     .portal-grid { grid-template-columns: minmax(0, 1fr); }
 }

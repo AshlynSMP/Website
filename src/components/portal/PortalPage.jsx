@@ -4,6 +4,7 @@ import { LinkStep } from './LinkStep.jsx';
 import { PortalShell } from './PortalShell.jsx';
 import { Maintenance, SignIn } from './SignIn.jsx';
 import { Account } from './pages/Account.jsx';
+import { Chat } from './pages/Chat.jsx';
 import { Events } from './pages/Events.jsx';
 import { Leaders } from './pages/Leaders.jsx';
 import { Overview } from './pages/Overview.jsx';
@@ -15,6 +16,7 @@ const PAGES = {
     '/portal': Overview,
     '/portal/stats': Stats,
     '/portal/events': Events,
+    '/portal/chat': Chat,
     '/portal/melden': Report,
     '/portal/account': Account,
     '/portal/leiders': Leaders

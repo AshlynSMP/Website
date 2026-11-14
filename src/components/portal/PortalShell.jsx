@@ -7,6 +7,7 @@ const LINKS = [
     ['/portal', 'Overzicht', 'home'],
     ['/portal/stats', 'Stats', 'stats'],
     ['/portal/events', 'Events', 'events'],
+    ['/portal/chat', 'Chat', 'chat'],
     ['/portal/melden', 'Melden', 'report'],
     ['/portal/account', 'Account', 'account']
 ];
